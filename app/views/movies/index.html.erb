@@ -1,22 +1,22 @@
 <div class="container offset-2">
   <div class="row col-10">
     <div>
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>No.1</th>
+      <table class="table table-hover">
+        <thead class="text-center">
+          <tr >
+            <th>No</th>
             <th>Title</th>
             <th>Description</th>
-            <th>IMDb</th>
+            <th>Image</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody class="text-center">
           <% @movies.each_with_index do |movie, index| %>
-            <tr>
-              <td><%= index +1 %></td>
+            <tr class="text-center">
+              <td class="text-center"><%= index +1 %></td>
               <td><%= link_to movie.title, movie_path(movie) %></td>
-              <td><%= movie.description %></td>
-              <td><%= movie.imdb %></td>
+              <td><%= movie.description.truncate(120, separator: ' ') %></td>
+              <td><img src=<%= "https://image.tmdb.org/t/p/w500#{movie.backdrop_path}" %> alt="<%=movie.title%>"></td>
             </tr>
           <% end %>
         </tbody>
