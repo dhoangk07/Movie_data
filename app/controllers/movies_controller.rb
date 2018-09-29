@@ -1,6 +1,7 @@
 class MoviesController < ApplicationController
   before_action :set_movie, only: %i[edit update show destroy]
   def index
+    @movies = Movie.all
   end
   
   def new

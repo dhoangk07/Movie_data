@@ -1,0 +1,26 @@
+<div class="container offset-2">
+  <div class="row col-10">
+    <div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>No.1</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>IMDb</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @movies.each_with_index do |movie, index| %>
+            <tr>
+              <td><%= index +1 %></td>
+              <td><%= link_to movie.title, movie_path(movie) %></td>
+              <td><%= movie.description %></td>
+              <td><%= movie.imdb %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
