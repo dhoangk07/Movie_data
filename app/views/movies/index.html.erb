@@ -10,12 +10,12 @@
             <th>Image</th>
           </tr>
         </thead>
-        <tbody class="text-center">
+        <tbody>
           <% @movies.each_with_index do |movie, index| %>
-            <tr class="text-center">
+            <tr>
               <td class="text-center"><%= index +1 %></td>
               <td><%= link_to movie.title, movie_path(movie) %></td>
-              <td><%= movie.description.truncate(120, separator: ' ') %></td>
+              <td><%= movie.description.truncate(150, separator: ' ') %></td>
               <td><img src=<%= "https://image.tmdb.org/t/p/w500#{movie.backdrop_path}" %> alt="<%=movie.title%>"></td>
             </tr>
           <% end %>
