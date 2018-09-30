@@ -1,14 +1,12 @@
   require 'uri'
   require 'net/http'
 class Movie < ApplicationRecord
-  validates_uniqueness_of :title
+  validates :title, uniqueness: true
   def self.fetch_themoviedb
     url = URI("https://api.themoviedb.org/3/movie/now_playing?page=1&language=en-US&api_key=65863bf5229c0d57bcf2f3a29183ac0e")
-
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
     http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-
     request = Net::HTTP::Get.new(url)
     request.body = "{}"
     response = http.request(request)
