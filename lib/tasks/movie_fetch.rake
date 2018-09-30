@@ -1,5 +1,5 @@
-desc "fetch themoviedb"
-task themoviedb_fetcher: :environment do 
+desc "Fetch themoviedb"
+task fetch_themoviedb: :environment do 
   Movie.fetch_themoviedb
 end
 
