@@ -1,26 +1,37 @@
-<div class="container offset-2">
-  <div class="row col-10">
-    <div>
-      <table class="table table-hover">
-        <thead class="text-center">
-          <tr >
-            <th>No</th>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Image</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @movies.each_with_index do |movie, index| %>
-            <tr>
-              <td class="text-center"><%= index +1 %></td>
-              <td><%= link_to movie.title, movie_path(movie) %></td>
-              <td><%= movie.description.truncate(150, separator: ' ') %></td>
-              <td><img src=<%= "https://image.tmdb.org/t/p/w500#{movie.backdrop_path}" %> alt="<%=movie.title%>"></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
+<p class="text-success text-center"> Hot Films</p>
+<div class="container">
+  <div class="row">
+    <% @movies.each do |movie| %>
+      <div class="col-4 px-1 py-1 ">
+        <div class="card-group table-element">
+          <div class="card ">
+            <img class="card-img-top img-fluid" src=<%= "https://image.tmdb.org/t/p/w500#{movie.backdrop_path}" %> alt="<%=movie.title%>">
+            <div class="hover-wrapper ">
+              <div class="row ml-2 mt-2">
+                <span class="hover-class "><%= movie.release_date.strftime("%d-%b-%Y")%></span>
+                <span class="hover-class "><%= movie.vote_average%><i class="fa fa-star"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <h6><%=movie.title.truncate(40, separator: ' ') %></h6>
+      </div>
+    <% end %>
   </div>
 </div>
+
+
+<style type="text/css">
+  .hover-wrapper{
+    visibility: hidden;
+  }
+
+  .hover-class{
+    position: relative;
+    /*top: -49px;*/
+  }
+  .table-element:hover .hover-wrapper{
+    visibility: visible;
+  }
+</style>
+
