@@ -18,6 +18,7 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 gem 'devise'      , '~> 4.5'
 gem 'faker'       , '~> 1.9', '>= 1.9.1'
 gem 'whenever'    , '~> 0.10.0'
+gem "font-awesome-rails"
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
