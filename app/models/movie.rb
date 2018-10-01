@@ -20,8 +20,8 @@ class Movie < ApplicationRecord
       json_movie['vote_average']
       json_movie['release_date']
       Movie.create(title: json_movie['title'], description: json_movie['overview'], 
-        poster_path: json_movie['poster_path'], backdrop_path: json_movie['backdrop_path'],
-        vote_average: json_movie['vote_average'], release_date: json_movie['release_date'] )
+                   poster_path: json_movie['poster_path'], backdrop_path: json_movie['backdrop_path'],
+                   vote_average: json_movie['vote_average'], release_date: json_movie['release_date'] )
     end
   end
 end
